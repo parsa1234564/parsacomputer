@@ -1,0 +1,108 @@
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="1NP7E70lgWPjit0tpI2Gb69dE5D1bB9b9YCbtsR4rMs" />
+<title>خدمات کامپیوتری پارسا | ساخت اکانت جیمیل، اپل آیدی و سامسونگ</title>
+<meta name="description" content="خدمات کامپیوتری پارسا ارائه دهنده ساخت اکانت جیمیل، اپل آیدی، سامسونگ و اکتیو کردن ویندوز با قیمت مناسب.">
+<meta name="keywords" content="خدمات کامپیوتری, ساخت اکانت جیمیل, اپل آیدی, سامسونگ اکانت, اکتیو ویندوز">
+<meta name="robots" content="index, follow">
+
+<style>
+*{box-sizing:border-box;font-family:Tahoma;margin:0;padding:0}
+body{background:linear-gradient(135deg,#e0f7ff,#fdfbff,#ffe6ff);color:#222}
+.container{max-width:1100px;margin:auto;padding:50px}
+.hidden{display:none}
+h1{text-align:center;font-size:3.2rem;background:linear-gradient(90deg,#00c6ff,#ff00cc,#00ff99);-webkit-background-clip:text;color:transparent}
+h2{text-align:center;color:#6a00ff;margin:20px 0}
+p{font-size:1.1rem;margin:10px 0;line-height:1.5}
+.card{background:#fff;border-radius:25px;padding:35px;margin:30px 0;box-shadow:0 15px 40px rgba(0,0,0,.15)}
+.btn{display:inline-block;margin:15px;padding:18px 40px;border-radius:40px;font-weight:bold;color:#fff;background:linear-gradient(45deg,#00c6ff,#ff00cc);border:none;cursor:pointer}
+.options button{width:100%;padding:20px;margin:12px 0;font-size:1.2rem;border:none;border-radius:20px;background:linear-gradient(45deg,#00ff99,#00c6ff);cursor:pointer}
+input{width:100%;padding:15px;margin:15px 0;border-radius:15px;border:2px solid #ccc;font-size:1.1rem}
+.receipt{background:#fff;border:4px dashed #6a00ff;border-radius:25px;padding:35px}
+.code{font-size:1.6rem;color:#ff00cc;font-weight:bold}
+.footer{text-align:center;margin-top:60px;color:#555;font-weight:bold}
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>خدمات کامپیوتری پارسا</h1>
+<p style="text-align:center; font-size:1.2rem;">خدمات ساخت اکانت جیمیل، اپل آیدی، سامسونگ و اکتیو کردن ویندوز با بهترین قیمت و کیفیت در ایران.</p>
+
+<div id="home">
+<div class="card"><h2>اکتیو سازی ویندوز</h2><div style="text-align:center"><button class="btn" onclick="showWindows()">شروع</button></div></div>
+<div class="card"><h2>ساخت اکانت</h2><div style="text-align:center"><button class="btn" onclick="showAccounts()">شروع</button></div></div>
+</div>
+
+<div id="windows" class="hidden"><h2>انتخاب ویندوز</h2><div class="options">
+<button onclick="nextUser('اکتیو سازی ویندوز','ویندوز 11','100,000 تومان','GT')">Windows 11</button>
+<button onclick="nextUser('اکتیو سازی ویندوز','ویندوز 10','100,000 تومان','GT')">Windows 10</button>
+<button onclick="nextUser('اکتیو سازی ویندوز','ویندوز 7','100,000 تومان','GT')">Windows 7</button>
+</div></div>
+
+<div id="accounts" class="hidden"><h2>انتخاب نوع اکانت</h2><div class="options">
+<button onclick="nextUser('ساخت اکانت','جیمیل','50,000 تومان','AC')">جیمیل</button>
+<button onclick="nextUser('ساخت اکانت','اپل آیدی','50,000 تومان','AC')">اپل آیدی</button>
+<button onclick="nextUser('ساخت اکانت','سامسونگ اکانت','50,000 تومان','AC')">سامسونگ اکانت</button>
+</div></div>
+
+<div id="user" class="hidden">
+<h2>مشخصات مشتری</h2>
+<input id="name" placeholder="نام و نام خانوادگی">
+<div style="text-align:center"><button class="btn" onclick="showReceipt()">ثبت و ادامه</button></div>
+</div>
+
+<div id="receipt" class="hidden">
+<h2>رسید ثبت سفارش</h2>
+<div class="receipt">
+<p><b>نام مشتری:</b> <span id="rname"></span></p>
+<p><b>خدمت:</b> <span id="rs"></span></p>
+<p><b>نوع:</b> <span id="rt"></span></p>
+<p><b>مبلغ:</b> <span id="rp"></span></p>
+<p><b>کد پیگیری:</b> <span class="code" id="rc"></span></p>
+</div>
+
+<p style="margin-top:20px">لطفا فیش را برای ایتا یا واتساپ مدیریت ارسال کنید</p>
+
+<div style="text-align:center;margin-top:15px">
+  <button class="btn" onclick="openWhatsApp()">ارسال در واتساپ</button>
+  <button class="btn" onclick="openEitaa()">ارسال در ایتا</button>
+</div>
+</div>
+
+<div class="footer">© خدمات کامپیوتری پارسا</div>
+</div>
+
+<script>
+let data={};
+function hideAll(){['home','windows','accounts','user','receipt'].forEach(i=>document.getElementById(i).classList.add('hidden'))}
+function showWindows(){hideAll();document.getElementById('windows').classList.remove('hidden')}
+function showAccounts(){hideAll();document.getElementById('accounts').classList.remove('hidden')}
+function nextUser(s,t,p,pre){
+  data={service:s,type:t,price:p,code:pre+'-'+Math.floor(100000+Math.random()*900000)};
+  hideAll();document.getElementById('user').classList.remove('hidden');
+}
+function showReceipt(){
+  data.name=document.getElementById('name').value;
+  hideAll();document.getElementById('receipt').classList.remove('hidden');
+  rname.innerText=data.name;
+  rs.innerText=data.service;
+  rt.innerText=data.type;
+  rp.innerText=data.price;
+  rc.innerText=data.code;
+}
+
+// باز کردن واتساپ با شماره مدیریت
+function openWhatsApp(){
+  window.open(`https://wa.me/09333229245`, '_blank');
+}
+
+// باز کردن ایتا با شماره مدیریت
+function openEitaa(){
+  window.open(`https://eitaa.com/09333229245`, '_blank');
+}
+</script>
+</body>
+</html>
